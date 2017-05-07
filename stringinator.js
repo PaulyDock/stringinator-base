@@ -1,7 +1,7 @@
 const _ = require('./underbar');
 
-const first = function(str, n) {
-  // Your code goes here
+const first = function(str, n = 1) {
+  return n === 1 ? str[0] : _.first(str.split(''), n).join('');
 };
 
 const last = function(str, n) {
