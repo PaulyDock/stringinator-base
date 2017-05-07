@@ -1,31 +1,44 @@
 // Returns the given value. Seems pointless perhaps but see its use below for providing a default, no-op callback.
 const identity = function(val) {
-  // Your code goes here
+  return val;
 };
 
 // Returns the first n elements of the given array.
 const first = function(array, n = 1) {
-  // Your code goes here
+  return n === 1 ? array[0] : array.splice(0, n);
 };
 
 // Returns the last n elements of the given array.
 const last = function(array, n = 1) {
-  // Your code goes here
+  return n === 1 ? array[array.length - 1] : array.splice(Math.max(0, array.length - n));
 };
 
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 const indexOf = function(array, target, fromIndex=0) {
-  // Your code goes here
+  for (let index = fromIndex; index < array.length; index++) {
+    if (array[index] === target) {
+      return index;
+    }
+  }
+  return -1;
 };
 
 const isArrayLike = function(obj) {
-  // Your code goes here
+  return typeof obj.length === 'number' && obj.length >= 0;
 };
 
 // The cornerstone of a functional library -- iterate all elements, pass each to a callback function.
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 const each = function(obj, callback=identity) {
-  // Your code goes here
+  if (isArrayLike(obj)) {
+    for (let index = 0; index < obj.length; index++) {
+      callback(obj[index], index, obj);
+    }
+  } else {
+    for (let entry in obj) {
+      callback(obj[entry], entry, obj);
+    }
+  }
 };
 
 // Return the results of applying the callback to each element.
