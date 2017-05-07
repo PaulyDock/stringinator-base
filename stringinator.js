@@ -4,8 +4,8 @@ const first = function(str, n = 1) {
   return n === 1 ? str[0] : _.first(str.split(''), n).join('');
 };
 
-const last = function(str, n) {
-  // Your code goes here
+const last = function(str, n = 1) {
+  return n === 1 ? str[str.length - 1] : _.last(str.split(''), n).join('');
 };
 
 const removeChar = function(str, target) {
