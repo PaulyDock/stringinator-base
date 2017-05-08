@@ -12,11 +12,21 @@ describe('contains()', () => {
   });
 
   it('returns true if the target value is among the values of an object', () => {
-    // Your code goes here
+    let obj = {
+      tree: 'branch',
+      pop: 'corn',
+      tiger: 'lily'
+    };
+    expect(_.contains(obj, 'corn')).toBe(true);
   });
 
   it('returns false if the target value is not among the values of an object', () => {
-    // Your code goes here
+    let obj = {
+      tree: 'branch',
+      pop: 'corn',
+      tiger: 'lily'
+    };
+    expect(_.contains(obj, 'pop')).toBe(false);
   });
 
 });
