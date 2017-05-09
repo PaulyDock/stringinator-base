@@ -124,6 +124,11 @@ const reject = function(arr, callback=identity) {
 
 // De-duplicates (de-dups) the elements / object values.
 const uniq = function(obj) {
+  const foundItems = {};
+  return filter(obj, item => {
+    return !(item in foundItems) && (foundItems[item] = true);
+  });
+/*
   const dupes = [];
   const result = [];
   each(obj, item => {
@@ -133,6 +138,7 @@ const uniq = function(obj) {
     dupes.push(item);
   });
   return result;
+*/
 };
 
 
