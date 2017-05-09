@@ -10,9 +10,11 @@ const last = function(str, n = 1) {
 
 const removeChar = function(str, target) {
   return _.reject(str.split(''), char => char === target).join('');
+  // removes all instances of a letter, although removing just a single/first
+  // instance would pass the provided test
 };
 
-const hasChar = function(str, target) {
+const hasChar = function(str, target) { 
   // hint: use _.some
   // Your code goes here
 };
