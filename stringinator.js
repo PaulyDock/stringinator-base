@@ -23,7 +23,7 @@ const isOnlyDigits = function(str) {
 };
 
 const filterToOnlyDigits = function(str) {
-  // Your code goes here
+  return _.filter(str.split(''), char => !isNaN(parseInt(char))).join('');
 };
 
 const truncateString = function(val, maxLength) {
