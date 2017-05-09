@@ -14,7 +14,6 @@ describe('filter()', () => {
       hairColor: 'brown'
     };
     expect(_.filter(obj, value => !isNaN(value))).toEqual([54, 78]);
-    //expect(_.filter(obj, entry => typeof obj[entry] === 'number')).toEqual([54, 78]);
   });
 
 });
