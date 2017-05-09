@@ -86,14 +86,16 @@ const contains = function(obj, target) {
 
 // Return true if all the elements / object values are accepted by the callback.
 const every = function(obj, callback=identity) {
-  return reduce(obj, (allTrue, currentItem) => {
-    return allTrue && !!callback(currentItem);
+  return reduce(obj, (allPassed, currentItem) => {
+    return allPassed && !!callback(currentItem);
   }, true);
 };
 
 // Return true if even 1 element / object value is accepted by the callback.
 const some = function(obj, callback=identity) {
-  // Your code goes here
+  return reduce(obj, (anyPassed, currentItem) => {
+    return anyPassed || !!callback(currentItem);
+  }, false);
 };
 
 // Return an array with all elements / object values that are accepted by the callback.
